@@ -1,0 +1,78 @@
+_resource_ : 애플리케이션에서 고정으로 사용하는 Resource 폴더로 Theme, UserFont 등의 정보를 관리
+
+Base : 애플리케이션에서 생성된 화면, 자바스크립트 라이브러리, 이미지 등의 파일들이 저장되는 폴더로 서비스라고 명명
+         기본으로 생성
+
+FrameBase : 프로젝트 생성시 구성한 프레임 안에 들어가는 화면이 생성되는 서비스
+
+Form, Popup : TpeDefinition > Service 항목에서 추가한 서비스
+
+App_Desktop.xadl : 프로젝트 익스플로러의 Apps 'App_Desktop' 항목에서 설정한 정보를 갖는 파일
+
+appvariables.xml : 프로젝트 익스플로러의 AppVariables 항목에서 설정한 정보
+
+environment.xml : 프로젝트 익스플로러의 Environment 항목에서 설정한 정보
+
+sampleProject.xprj : 개발시에만 필요한 파일, 프로그램(넥사크로)에서 프로젝트를 관리하는 파일
+
+typedefinition.xml : 프로젝트 익스플로러의 TypeDefinition 항목에서 설정한 정보
+
+Base > Hello.xfdl : 애플리케이션에서 생성한 화면파일 .xfdl 로 생성됨
+
+
+
+Variables : 스크립트 사용방식
+
+Variable 값 반환
+var sValue = nexacro.getEnvironmentVariable("Env_Var1");
+
+Variable 추가
+nexacro.setEnvironmentVariable("Env_Var1", "nexacro platform");
+
+Variable 제거
+nexacro.setEnvironmentVariable("Env_Var1");
+
+
+Cookies 스크립트 사용방식
+
+Variable 값 반환
+var sValue = nexacro.getEnvironmentVariable("Env_Var1");
+
+Variable 추가
+nexacro.setEnvironmentVariable("Env_Var1", "nexacro platform");
+
+Variable 제거
+nexacro.removeEnvironmentVariable("Env_Var1");
+
+
+HTTP Header : 스크립트 사용방식
+
+HTTP Header 값 반환
+var headerValue = nexacro.getHTTPHeaderVariable("Env_Http1");
+
+HTTP Header 추가
+nexacro.setHTTPHeaderVariable("Env_Http1", "nexacro platform");
+
+HTTP Header 제거
+nexacro.removeHTTPHeaderVariable("Env_Http1");
+
+
+스크립트 작성
+this.Env_Script = function()
+{
+	return "Env Script Call";
+}
+
+스크립트로 접근
+Environment Object를 이용하여 접근
+var objEnv = nexacro.getEnvironment()
+objEnv.Env_Script();
+
+
+Application Object 를 이용하여 접근
+var objApp = nexacro.getApplication();
+objApp.Dataset0.getRowCount();
+
+Application Object 를 이용하여 접근
+var objApp = nexacro.getApplication();
+objApp.gv_name; (id값)
